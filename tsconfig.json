@@ -1,0 +1,13 @@
+{
+  "files": [],
+  // "compilerOptions": {
+  //   "allowJs": true,
+  //   "checkJs": true, // Optional: Set to false if you don't want TypeScript to check JavaScript files
+  //   // other options...
+  // },
+
+  "references": [
+    { "path": "./tsconfig.app.json" },
+    { "path": "./tsconfig.node.json" }
+  ]
+}
