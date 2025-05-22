@@ -1,11 +1,16 @@
 <template>
     <ul v-for="contract in props.contracts" :key="contract">
+        
         <Contract 
         :contract = "_contract(contract)" 
         :term = "_terms(contract.terms)"
         :payment = "_payment(contract.terms.payment)"
         :delivery = "_delivery(contract.terms.deliver)"
         />
+
+        <!-- <li v-for="deliver in contract.terms.deliver" :key="deliver">
+        <ElementsWithProps :packedProps = "deliver" />
+    </li> -->
         
     </ul>
 </template>
@@ -45,7 +50,7 @@ const _payment = (contract) => {
     }
 }
 
-const _delivery = (contract) => {
+const _delivery = ([contract]) => {
     return [{
         destinationSymbol: contract.destinationSymbol,
         tradeSymbol: contract.tradeSymbol,
@@ -53,5 +58,4 @@ const _delivery = (contract) => {
         unitsFulfilled: contract.unitsFulfilled
     }]
 }
-console.log(_delivery(props.contracts.terms.deliver[0]))
 </script>

@@ -5,9 +5,9 @@ export interface IDeliver {
     unitsFulfilled: number;
 }
 
-export default {
+export default [{
     tradeSymbol: "",
     destinationSymbol: "",
     unitsRequired: 0,
     unitsFulfilled: 0
-}
+}]

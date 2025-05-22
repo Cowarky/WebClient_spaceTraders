@@ -19,11 +19,20 @@
     </ul>
     <li v-for="deliver in props.delivery" :key="deliver">
         <ElementsWithProps :packedProps = "deliver" />
+         <!-- <h1>{{ deliver }}</h1> -->
     </li>
+    <li v-if="props.contract.accepted == false">
+        <button @click="accept">
+            Accept contract
+        </button>
+    </li>
+
+    
 </ul>
     
 </template>
 <script setup>
+import api from '../../../services/api';
 import ElementsWithProps from '../../common/ElementsWithProps.vue';
 import ElementWithProps from '../../common/ElementWithProps.vue';
 import IContract from '../../../models/Contract';
@@ -43,7 +52,7 @@ const props = defineProps(
         type: IPayment
     },
     delivery: {
-        type: Array(IDelivery)
+        type: IDelivery
     }
 }
 )
@@ -52,6 +61,10 @@ const titles = {
   contract: "contract",
   terms: "terms",
   payment: "payment"
+}
+
+function accept() {
+    api.SendData(import.meta.env.VITE_API_CONTRACTS_ENDPOINT + "/" + props.contract.id + "/accept")
 }
 
 </script>

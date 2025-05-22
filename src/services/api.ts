@@ -21,9 +21,21 @@ async function RetrieveData<T>(endpoint: string): Promise<T> {
     return resData.data
 };
 
-async function RequestData() {
-    console.log("RequestData")
+async function SendData(endpoint: string) {
+    const options = {
+        method: 'POST',
+        headers: {
+            'Accept': '*/*',
+            // 'Content-Type': 'application/json',
+            'Authorization': import.meta.env.VITE_API_KEY
+        }
+    }
+    let response = await fetch(import.meta.env.VITE_API_URL + endpoint, options)
+
+    const resData = await response.json();
+    console.log(resData.data)
+
 };
 
 
-export default { RetrieveData, RequestData }
+export default { RetrieveData, SendData }

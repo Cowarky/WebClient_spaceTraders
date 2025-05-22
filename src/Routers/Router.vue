@@ -2,6 +2,7 @@
 import Home from '../Routes/Home.vue';
 import Fleet from '../Routes/Fleet.vue';
 import Contracts from '../Routes/Contracts.vue';
+import Navigation from '../Routes/Navigation.vue';
 import { ref , computed, onMounted} from 'vue';
 
 
@@ -9,7 +10,8 @@ import { ref , computed, onMounted} from 'vue';
 let routes = {
   '/': Home,
   '/fleet': Fleet,
-  '/contracts': Contracts
+  '/contracts': Contracts,
+  '/navigation': Navigation
 }
 
 const currentPath = ref(window.location.hash)
@@ -48,5 +50,6 @@ const currentView = computed(() => {
 <component :is="currentView" />
 <a href="#/">Home</a> <br>
 <a href="#/fleet">Fleet</a> <br>
-<a href="#/contracts">Contracts</a>
+<a href="#/contracts">Contracts</a> <br>
+<a href="#/navigation">Navigation</a>
 </template>
