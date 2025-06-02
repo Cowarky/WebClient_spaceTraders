@@ -1,10 +1,13 @@
 <template>
     <ul v-for="system in props.systems" :key="system">
-        <!-- {{ system.waypoints }} -->
         <System 
         :system = "_system(system)" 
-        :waypoint = "_waypoint(system.waypoints)"
+        
         />
+        <!-- :waypoint = "_waypoint(system)" -->
+        <ul v-for="waypoint in system.waypoints" :key="waypoint">
+            <ElementsWithProps :packedProps = "waypoint" /> 
+        </ul>
     </ul>
 </template>
 
@@ -19,23 +22,24 @@ const props = defineProps({
 
 const _system = (system) => {
     return {
-        name: system.name,
-        constellation: system.constellation,
-        symbol: system.symbol,
-        sectorSymbol: system.sectorSymbol,
-        type: system.type,
-        x: system.x,
-        y: system.y
+        name: "name: " + system.name,
+        constellation: "constellation: " +system.constellation,
+        symbol: "symbol: " +system.symbol,
+        sectorSymbol: "sectorSymbol: " +system.sectorSymbol,
+        type: "type: " +system.type,
+        x: "x: " +system.x,
+        y: "y: " +system.y
     }
 
 }
-const _waypoint = (system) => {
+
+const _waypoint = ([system]) => {
     return [{
         // orbitals: [{symbol:"test"}],
-        symbol: system.symbol,
-        type: system.type,
-        x: system.x,
-        y: system.y
+        symbol: "symbol: " + system.symbol,
+        type: "type: " + system.type,
+        x: "x: " + system.x,
+        y: "y: " + system.y
     }]
 }
 

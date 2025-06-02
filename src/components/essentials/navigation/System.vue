@@ -1,9 +1,9 @@
 <template>
     <ElementsWithProps :packedProps = "props.system"/>
-        <li v-for="waypoints in props.waypoint" :key="waypoints">        
-        <ElementsWithProps :packedProps = "waypoints" />
-
-    </li>
+         <!-- <li v-for="waypoints in props.system" :key="waypoints"> 
+            <ElementsWithProps :packedProps = "waypoints" />  -->
+             <!-- {{ console.log(waypoints) }} -->
+        <!-- </li> -->
 </template>
 
 <script setup>

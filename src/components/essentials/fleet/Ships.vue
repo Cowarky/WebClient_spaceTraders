@@ -8,12 +8,20 @@
         :engine = "_engine(ship.engine)"
         :fuel = "_fuel(ship.fuel)"
         />
+        <button @click="() => negotiate(ship.symbol)">
+            {{ ship.symbol }} Negotiate Contract
+        </button>
     </ul>
 </template>
 
 <script setup >
 import Ship from './Ship.vue';
 import ElementWithProps from '../../common/ElementWithProps.vue';
+import Handler from '../../../services/Handler';
+
+const negotiate = (shipSymbol) => {
+    Handler.negotiateContract(shipSymbol)
+}
 
 const props = defineProps({
     ships: {

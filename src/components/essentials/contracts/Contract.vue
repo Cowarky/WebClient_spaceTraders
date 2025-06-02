@@ -22,7 +22,7 @@
          <!-- <h1>{{ deliver }}</h1> -->
     </li>
     <li v-if="props.contract.accepted == false">
-        <button @click="accept">
+        <button @click="() => accept(props.contract.id)">
             Accept contract
         </button>
     </li>
@@ -39,6 +39,7 @@ import IContract from '../../../models/Contract';
 import ITerms from '../../../models/ship/essentials/contracts/Terms'
 import IPayment from '../../../models/ship/extras/Payment'
 import IDelivery from '../../../models/ship/extras/Delivery'
+import Handler from '../../../services/Handler';
 
 const props = defineProps(
     {
@@ -63,8 +64,9 @@ const titles = {
   payment: "payment"
 }
 
-function accept() {
-    api.SendData(import.meta.env.VITE_API_CONTRACTS_ENDPOINT + "/" + props.contract.id + "/accept")
+function accept(id) {
+    api.SendData(import.meta.env.VITE_API_CONTRACTS_ENDPOINT + import.meta.env.VITE_API_ACCEPT, {contractId: id})
+    // Handler.acceptContract(id)
 }
 
 </script>

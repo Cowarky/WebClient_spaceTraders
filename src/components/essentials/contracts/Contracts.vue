@@ -1,6 +1,5 @@
 <template>
     <ul v-for="contract in props.contracts" :key="contract">
-        
         <Contract 
         :contract = "_contract(contract)" 
         :term = "_terms(contract.terms)"
