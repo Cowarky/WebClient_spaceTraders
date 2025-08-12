@@ -1,5 +1,5 @@
 # Space Traders game web client
-I'm building a web frontend web client for the game https://spacetraders.io/ which is a programmable API game
+I'm building a web frontend web client for the game https://spacetraders.io/ which is a programmable game
 
 # Status
 Still under development
